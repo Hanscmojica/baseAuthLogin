@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autenticación JWT - Verificación Real</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Formulario de Login -->
+        <div id="loginForm">
+            <h1>Bienvenido de nuevo Hans</h1>
+            <p style="color: #000000; margin-bottom: 30px;">Comprometidos siempre con la seguridad para ti</p>
+            
+            <form id="authForm">
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" value="admin@test.com" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">Contraseña:</label>
+                    <input type="password" id="password" value="admin123" required>
+                </div>
+                
+                <button type="submit" class="btn" id="loginBtn">Iniciar Sesión</button>
+            </form>
+
+
+
+            <div id="message"></div>
+        </div>
+
+        <!-- Dashboard (después del login) -->
+        <div id="dashboard" class="dashboard">
+            <h1>✅ ¡Autenticado!</h1>
+            <div class="user-info">
+                <h3>Información del Usuario</h3>
+                <p><strong>Email:</strong> <span id="userEmail"></span></p>
+                <p><strong>ID:</strong> <span id="userId"></span></p>
+            </div>
+
+            <div class="token-display">
+                <strong>🔑 Token JWT:</strong><br>
+                <span id="tokenDisplay"></span>
+            </div>
+
+            <div class="console-info">
+                <strong>✅ Token guardado en:</strong><br>
+                • Console del navegador<br>
+                • localStorage<br>
+                • Variable JavaScript global
+            </div>
+
+            <div class="test-buttons">
+                <button class="test-btn" onclick="testProfile()">Probar Perfil</button>
+                <button class="test-btn" onclick="testRefresh()">Renovar Token</button>
+                <button class="test-btn danger" onclick="testInvalidToken()">Probar Token Inválido</button>
+            </div>
+
+            <button class="btn" onclick="logout()" style="margin-top: 20px;">Cerrar Sesión</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
